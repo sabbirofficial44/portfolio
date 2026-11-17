@@ -33,7 +33,7 @@ if (readMoreBtn && readMoreText) {
 // ===== typed.js =====
 if (window.Typed) {
   new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'Web Designer', 'UI/UX Designer'],
+    strings: ['Frontend Developer', 'Automation Developer', 'Web Designer', 'UI/UX Designer'],
     typeSpeed: 60,
     backSpeed: 40,
     backDelay: 1500,

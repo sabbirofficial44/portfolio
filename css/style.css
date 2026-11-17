@@ -24,6 +24,7 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   position: relative;
+  overflow-x: hidden;
 }
 
 /* ===== 3D background canvas ===== */
@@ -117,10 +118,15 @@ li {
 }
 
 #menuicon {
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   color: var(--text-color);
   display: none;
   cursor: pointer;
+  width: 4.4rem;
+  height: 4.4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
 }
 
 #lightTheam {
@@ -129,11 +135,12 @@ li {
 
 /* ===== home ===== */
 section {
-  min-height: 100vh;
-  padding: 10rem 9% 2rem;
+  padding: 9rem 9% 3rem;
+  scroll-margin-top: 8rem;
 }
 
 .home {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -307,7 +314,7 @@ section {
 
 .service-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 }
 
@@ -400,6 +407,20 @@ section {
 .portfolio-box:hover .portfolio-layer {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* touch devices have no hover: always show the caption */
+@media (hover: none) {
+  .portfolio-layer {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(180deg, transparent 25%, rgba(8, 27, 41, 0.92) 100%);
+    padding: 2rem 1.8rem;
+  }
+
+  .portfolio-layer p {
+    display: none;
+  }
 }
 
 .portfolio-layer h4 {
@@ -542,29 +563,41 @@ body.light #bg-canvas {
   opacity: 0;
 }
 
-/* ===== responsive ===== */
+/* ===== responsive =====
+   Base type scale stays 1rem = 10px at every width so body copy never drops
+   below 16px (which also stops iOS from zooming into form fields).
+   Only component sizes are scaled down. */
+
 @media (max-width: 1200px) {
-  html { font-size: 55%; }
+  section { padding: 8.5rem 6% 3rem; }
+  .service-container { grid-template-columns: repeat(2, 1fr); }
+  .header { padding: 1.8rem 6%; }
+  .home-content h1 { font-size: 5.4rem; }
+  .heading { font-size: 4rem; }
 }
 
 @media (max-width: 991px) {
-  .header { padding: 2rem 4%; }
-  section { padding: 10rem 4% 2rem; }
-  .service-container,
+  section { padding: 8rem 5% 3rem; }
   .portfolio-container { grid-template-columns: repeat(2, 1fr); }
+  .about { gap: 3.5rem; }
+  .about img { width: 26rem; }
+  .home-img img { width: 26rem; }
 }
 
 @media (max-width: 768px) {
-  #menuicon { display: block; }
+  .header { padding: 1.4rem 5%; }
+  #menuicon { display: flex; }
 
   .navbar {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 1rem 4%;
+    padding: 0.6rem 5% 1.4rem;
     background: var(--second-bg-color);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.45);
     flex-direction: column;
+    align-items: stretch;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     transition: 0.3s ease;
   }
@@ -574,19 +607,81 @@ body.light #bg-canvas {
   }
 
   .navbar a {
-    display: block;
-    margin: 1.5rem 0;
-    font-size: 2rem;
+    display: flex;
+    margin: 0;
+    padding: 1.4rem 0.4rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(127, 150, 165, 0.18);
   }
 
-  .home { flex-direction: column-reverse; text-align: center; }
-  .home-content h1 { font-size: 4.5rem; }
-  .about { flex-direction: column; text-align: center; }
+  .navbar a:last-child {
+    border-bottom: 0;
+  }
+
+  .navbar a:hover,
+  .navbar a#active,
+  .navbar a.current {
+    border-bottom-color: rgba(127, 150, 165, 0.18);
+    color: var(--main-color);
+  }
+
+  /* hero: no forced full screen height on phones */
+  .home {
+    min-height: auto;
+    padding-top: 9rem;
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .home-img img { width: 22rem; }
+  .home-content h1 { font-size: 4.4rem; }
+  .home-content h3 { font-size: 2.4rem; }
+  .home-content p {
+    font-size: 1.6rem;
+    margin: 1.5rem 0 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .social-media { justify-content: center; gap: 1.2rem; margin-bottom: 2.4rem; }
+  .social-media a { width: 4.4rem; height: 4.4rem; margin-right: 0; font-size: 2.2rem; }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .about img { width: 24rem; }
   .about-content .heading { text-align: center; }
+  .about-content h3 { font-size: 2.2rem; }
+  .about-content p { font-size: 1.6rem; }
+
+  .heading { font-size: 3.4rem; margin-bottom: 2.5rem; }
+  .service h2, .portfolio h2, .contact h2 { margin-bottom: 3rem; }
+
   .service-container,
-  .portfolio-container { grid-template-columns: 1fr; }
+  .portfolio-container { gap: 2rem; }
+
+  .service-box { padding: 3rem 2.4rem; }
+  .service-box p { font-size: 1.6rem; }
+
   .contact form .input-box input { width: 100%; }
-  footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+  .contact form textarea,
+  .contact form .input-box input { font-size: 1.6rem; }
+
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 5%; }
+}
+
+@media (max-width: 480px) {
+  .home-content h1 { font-size: 3.8rem; }
+  .heading { font-size: 3rem; }
+  .home-content p { -webkit-line-clamp: 6; }
+  .logo { font-size: 2.2rem; }
+  section { padding: 7.5rem 6% 3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -615,4 +710,147 @@ body.light #bg-canvas {
 
 body.light .contact-alt a {
   color: #0077b6;
+}
+
+/* ===== automation section ===== */
+.automation {
+  background: var(--second-bg-color);
+}
+
+.automation-intro {
+  max-width: 72rem;
+  margin: -1rem auto 4.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #c7d3da;
+}
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.auto-card {
+  display: flex;
+  gap: 1.6rem;
+  align-items: flex-start;
+  padding: 2.4rem 2.2rem;
+  background: var(--bg-color);
+  border: 1px solid rgba(0, 171, 240, 0.15);
+  border-radius: 1.6rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auto-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--main-color);
+  box-shadow: 0 1.2rem 2.8rem rgba(0, 171, 240, 0.22);
+}
+
+.auto-card i {
+  font-size: 3rem;
+  color: var(--main-color);
+  line-height: 1;
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+}
+
+.auto-card h3 {
+  font-size: 1.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.auto-card p {
+  font-size: 1.45rem;
+  line-height: 1.7;
+  color: #c7d3da;
+}
+
+.auto-cta {
+  margin-top: 4.5rem;
+  text-align: center;
+}
+
+.auto-cta p {
+  font-size: 1.6rem;
+  color: #c7d3da;
+  margin-bottom: 2rem;
+}
+
+.auto-cta .btn {
+  display: inline-block;
+}
+
+/* light theme */
+body.light .automation-intro,
+body.light .auto-card p,
+body.light .auto-cta p {
+  color: #33474f;
+}
+
+body.light .auto-card {
+  background: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .auto-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .auto-grid { gap: 1.6rem; }
+  .automation-intro { font-size: 1.55rem; margin-bottom: 3rem; }
+  .auto-card { padding: 2rem 1.8rem; }
+  .auto-card h3 { font-size: 1.8rem; }
+  .auto-card p { font-size: 1.5rem; }
+  .auto-cta { margin-top: 3rem; }
+  .auto-cta .btn { width: 100%; text-align: center; }
+}
+
+/* ===== hero intro: long text only on wide screens ===== */
+.intro-link {
+  display: none;
+}
+
+/* ===== narrow-viewport safety nets ===== */
+@media (max-width: 768px) {
+  /* always show project captions on small screens, hover or not */
+  .portfolio-layer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .portfolio-layer p {
+    display: none;
+  }
+
+  .intro-extra {
+    display: none;
+  }
+
+  .intro-link {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0;
+    padding-bottom: 0.2rem;
+    font-size: 1.5rem;
+    color: var(--main-color);
+    border-bottom: 1px solid currentColor;
+  }
+
+  .home-content p {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+}
+
+/* two columns stay usable on tablets; single column only on phones */
+@media (max-width: 700px) {
+  .service-container,
+  .portfolio-container,
+  .auto-grid {
+    grid-template-columns: 1fr;
+  }
 }
