@@ -5,10 +5,17 @@ Personal portfolio site of **Sabbir Molla** (frontend developer & graphic design
 | | |
 |---|---|
 | **Live site** | https://developerx.site |
-| **Hosting** | Cloudflare Pages (free plan) |
-| **Domain** | developerx.site (Cloudflare DNS) |
+| **Hosting** | Cloudflare Pages (free plan) — project `developerx` |
+| **Pages URL** | https://developerx-ben.pages.dev |
+| **Domain** | developerx.site (Cloudflare DNS, SSL active) |
+| **Repo** | https://github.com/sabbirofficial44/portfolio |
 | **Stack** | Plain HTML + CSS + JavaScript (no build step) |
-| **Repo** | GitHub → auto-deploys on every `push` |
+| **Deploy** | `git push` → Cloudflare builds and publishes automatically (~40 s) |
+
+> **Status: LIVE.** Cloudflare Pages is connected to `sabbirofficial44/portfolio`
+> (production branch `main`), and `developerx.site` + `www.developerx.site` are attached
+> with automatic SSL. Apex DNS is `CNAME developerx.site → developerx-ben.pages.dev` (Proxied).
+> MX / SPF / DKIM records were left untouched, so the domain's email keeps working.
 
 ---
 
@@ -97,32 +104,41 @@ git push
 
 ---
 
-## 3. One-time hosting setup (already scripted, ~3 minutes of clicking)
+## 3. Hosting wiring (DONE — do not redo this)
 
-The repo is ready and pushed. The last step is clicking "connect" inside Cloudflare —
-it can't be automated because it needs your account login.
+Already configured and verified live. Keep this as reference so you know how it fits together.
 
-1. Go to **https://dash.cloudflare.com** → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Authorize GitHub if asked, then pick the repo **`portfolio`** → **Begin setup**.
-3. Fill in exactly this:
+| Piece | Value |
+|---|---|
+| GitHub account connected to Cloudflare | `sabbirofficial44` |
+| Repo | `sabbirofficial44/portfolio`, branch `main` |
+| Cloudflare Pages project | `developerx` |
+| Pages URL | `developerx-ben.pages.dev` (plain `developerx.pages.dev` was already taken) |
+| Production branch | `main` |
+| Framework preset | `None` |
+| Build command | *(empty)* |
+| Build output directory | *(empty = repo root)* |
+| DNS (apex) | `CNAME developerx.site → developerx-ben.pages.dev`, Proxied |
+| DNS (www) | `CNAME www → developerx-ben.pages.dev`, Proxied |
+| SSL | Automatic, active |
+| Email records | MX ×3, SPF, DKIM — untouched, email still works |
 
-   | Field | Value |
-   |---|---|
-   | Project name | `developerx` |
-   | Production branch | `main` |
-   | Framework preset | `None` |
-   | Build command | *(leave empty)* |
-   | Build output directory | `/` *(leave empty or a single `/`)* |
+Useful links:
 
-4. **Save and Deploy** → wait ~30 s → you get `developerx.pages.dev`.
-5. **Custom domains** → **Set up a custom domain** → type `developerx.site` → **Continue** → **Activate**.
-6. Repeat with `www` if you also want `www.developerx.site` (optional).
+- Builds / logs: https://dash.cloudflare.com/ac1c4dc0e4dbbbc77b840c5264bf87a3/pages/view/developerx
+- DNS: https://dash.cloudflare.com/ac1c4dc0e4dbbbc77b840c5264bf87a3/developerx.site/dns/records
 
-Because `developerx.site` already uses Cloudflare nameservers
-(`ignacio.ns.cloudflare.com`, `sandra.ns.cloudflare.com`), Cloudflare adds the DNS record
-itself — **no manual DNS editing, no waiting hours, SSL certificate is automatic**.
+### If you ever need to rebuild the connection from scratch
 
-From then on: `git push` → live in ~40 seconds.
+1. **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pick `sabbirofficial44/portfolio`.
+2. Project name `developerx`, branch `main`, framework `None`, build command empty, output directory empty.
+3. **Save and deploy**, then **Custom domains** → add `developerx.site` (accept the offered DNS record swap) and `www`.
+4. Wait for status **Active** — SSL is issued automatically.
+
+> Note: your GitHub CLI login is now the `sabbirofficial44` account
+> (`gh auth status` shows both accounts; `gh auth switch --user sabbirofficial44` to activate it).
+> That token has `repo` scope but **not** `workflow`, so you can't push files under
+> `.github/workflows/` until you run `gh auth refresh -s workflow`.
 
 ---
 
