@@ -11,3 +11,8 @@ package-lock.json
 Thumbs.db
 desktop.ini
 *.log
+
+# local QA artefacts
+shots/
+qa-findings.md
+findings-*.md
