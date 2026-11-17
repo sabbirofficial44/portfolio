@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page not found | Sabbir Molla</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    :root {
+      --bg: #081b29;
+      --text: #ededed;
+      --main: #00abf0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 50% 0%, #0c2b3f, var(--bg) 70%);
+      color: var(--text);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: clamp(6rem, 18vw, 12rem);
+      line-height: 1;
+      color: var(--main);
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin: 1.5rem 0 3rem;
+      opacity: 0.85;
+    }
+
+    a {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      border: 2px solid var(--main);
+      border-radius: 6px;
+      color: var(--main);
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background: var(--main);
+      color: var(--bg);
+      box-shadow: 0 0 2rem var(--main);
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>404</h1>
+    <p>This page took a wrong turn. Let's get you back.</p>
+    <a href="/"><i class='bx bx-home'></i> Back to Home</a>
+  </div>
+</body>
+
+</html>

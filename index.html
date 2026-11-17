@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sabbir Molla | Frontend Developer &amp; Graphic Designer</title>
+  <meta name="description"
+    content="Portfolio of Sabbir Molla — frontend developer and graphic designer building responsive, modern websites with HTML, CSS, JavaScript and React." />
+  <meta name="author" content="Sabbir Molla" />
+  <meta name="theme-color" content="#081b29" />
+  <link rel="canonical" href="https://developerx.site/" />
+
+  <!-- open graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://developerx.site/" />
+  <meta property="og:title" content="Sabbir Molla | Frontend Developer &amp; Graphic Designer" />
+  <meta property="og:description"
+    content="Frontend developer and graphic designer building responsive, modern websites and clean UI/UX." />
+  <meta property="og:image" content="https://developerx.site/images/home.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- box icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- custom css -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- 3D animated background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- header design -->
+  <header class="header">
+    <a href="#" class="logo">Portfolio</a>
+    <i class='bx bx-menu' id="menuicon"></i>
+
+    <nav class="navbar" id="navbar">
+      <a href="#home" class="nav-link" id="active"><i class='bx bx-home'></i> Home </a>
+      <a href="#about" class="nav-link"><i class='bx bx-info-circle'></i> About</a>
+      <a href="#service" class="nav-link"><i class='bx bxs-timer'></i> Services</a>
+      <a href="#portfolio" class="nav-link"> <i class='bx bxs-user-detail'></i> Portfolio</a>
+      <a href="#contact" class="nav-link"><i class='bx bx-support'></i> Contact</a>
+      <a id="lightTheam"><i class='bx bx-sun'> Light</i></a>
+    </nav>
+  </header>
+
+  <!-- home section design -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Hello! It's Me</h3>
+      <h1>Sabbir</h1>
+      <h3>And I'm a <span class="multiple-text">Frontend Developer</span></h3>
+      <p>
+        Looking for a versatile Programmer &amp; Graphic Designer to elevate your digital projects?
+        I specialize in combining eye-catching design with seamless functionality.
+        From crafting stunning visuals and layouts to coding interactive features and animations,
+        I ensure your website or app stands out and performs flawlessly. With expertise in Adobe Creative Suite, HTML,
+        CSS, and JavaScript,
+        I deliver creative and technically sound solutions tailored to your needs. Let's transform your ideas into
+        engaging digital experiences that captivate and convert.
+        Feel free to reach out to discuss your project!</p>
+      <div class="social-media">
+        <a href="#" aria-label="Facebook"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+        <a href="#" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
+        <a href="#" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+      </div>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+    <div class="home-img">
+      <img src="images/home.png" alt="Portrait of Sabbir Molla" class="img1" id="imgs">
+    </div>
+  </section>
+
+  <!-- about section design -->
+  <section class="about" id="about">
+    <div class="home-img">
+      <img src="images/about.png" alt="Sabbir Molla at work" class="img2">
+    </div>
+    <div class="about-content">
+      <h2 class="heading">About <span>Me</span> </h2>
+      <h3>Frontend Developer</h3>
+      <p>Need a skilled Frontend Developer to bring your web vision to life? I specialize in creating responsive,
+        user-friendly websites and applications that look great on any device. With expertise in HTML, CSS, and
+        JavaScript, I turn your design concepts into fully functional, interactive experiences. Whether you need a
+        brand-new site, a redesign, or enhancements to your existing platform, I deliver clean, efficient code and
+        seamless user interfaces. Let's collaborate to make your digital presence stand out and perform at its best.
+        Contact me to get started!</p>
+      <p id="read-more" style="display: none;">
+        I am a student of university. I am doing this work with my study. I had completed many frontend design
+        projects and I always make happy my client with my great work. I try my best to make a website frontend design.
+        I have been doing frontend design since 2021.
+      </p>
+      <button class="btn" id="btn">Read More</button>
+    </div>
+  </section>
+
+  <!-- services section design -->
+  <section class="service" id="service">
+
+    <h2 class="heading">Our <span>Service</span></h2>
+
+    <div class="service-container">
+
+      <div class="service-box">
+        <i class='bx bx-code-alt'></i>
+        <h3>Web Development</h3>
+        <p>Elevate your online presence with expert web development that delivers a visually stunning, fully responsive
+          site tailored to your needs.</p>
+        <a href="#contact" class="btn">Read More</a>
+      </div>
+
+      <div class="service-box">
+        <i class='bx bx-paint'></i>
+        <h3>Graphic Design</h3>
+        <p>Transform your brand with eye-catching designs and creative visuals that capture attention and communicate
+          your message effectively.</p>
+        <a href="#contact" class="btn">Read More</a>
+      </div>
+
+      <div class="service-box">
+        <i class='bx bx-bar-chart-alt'></i>
+        <h3>Digital Marketing</h3>
+        <p>Boost your online presence with strategic digital marketing that drives traffic, engages your audience, and
+          converts leads into loyal customers.</p>
+        <a href="#contact" class="btn">Read More</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- portfolio section design -->
+  <section class="portfolio" id="portfolio">
+    <h2 class="heading">Latest <span>Projects</span></h2>
+
+    <div class="portfolio-container">
+
+      <div class="portfolio-box">
+        <img src="images/portfolio1.jpg" alt="Landing page design project" loading="lazy">
+        <div class="portfolio-layer">
+          <h4>Land Page Design</h4>
+          <p>Bring your vision to life with a custom web development project that combines innovative design with
+            seamless functionality to create an exceptional user experience.</p>
+          <a href="#" aria-label="View project"><i class='bx bx-link-external'></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="images/portfolio2.jpg" alt="E-commerce web design project" loading="lazy">
+        <div class="portfolio-layer">
+          <h4>E-Commerce Web Design</h4>
+          <p>I design and develop high-converting e-commerce websites with a smooth shopping experience. From product
+            pages to secure checkout, I ensure a user-friendly interface that drives sales.</p>
+          <a href="#" aria-label="View project"><i class='bx bx-link-external'></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="images/portfolio3.jpg" alt="Portfolio website design project" loading="lazy">
+        <div class="portfolio-layer">
+          <h4>Portfolio Design</h4>
+          <p>Showcase your work with a sleek and professional portfolio website. I design visually captivating
+            portfolios that highlight your skills, projects, and achievements in the best possible way.</p>
+          <a href="#" aria-label="View project"><i class='bx bx-link-external'></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="images/portfolio4.jpg" alt="Custom website design project" loading="lazy">
+        <div class="portfolio-layer">
+          <h4>Custom Website Design</h4>
+          <p>Looking for a unique and fully customized website? I create tailor-made web solutions that meet your
+            specific needs and business goals, ensuring a seamless and engaging user experience.</p>
+          <a href="#" aria-label="View project"><i class='bx bx-link-external'></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="images/portfolio5.jpg" alt="React website design project" loading="lazy">
+        <div class="portfolio-layer">
+          <h4>React Website Design</h4>
+          <p>I build high-performance, fast, and responsive websites using React. With a focus on clean code and modern
+            UI/UX design, I ensure your website is both visually stunning and functionally efficient.</p>
+          <a href="#" aria-label="View project"><i class='bx bx-link-external'></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="images/portfolio6.jpg" alt="Modern web design project" loading="lazy">
+        <div class="portfolio-layer">
+          <h4>Web Design</h4>
+          <p>I specialize in designing modern and responsive websites that are user-friendly and visually appealing. My
+            goal is to create a website that effectively represents your brand and ensures an excellent user experience.
+          </p>
+          <a href="#" aria-label="View project"><i class='bx bx-link-external'></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- contact section design -->
+  <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <!-- FormSubmit: free, no backend needed. First submission asks for one-time email confirmation. -->
+    <form action="https://formsubmit.co/sabbirofficial44@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from developerx.site">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="input-box">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+      </div>
+      <div class="input-box">
+        <input type="tel" name="phone" placeholder="Mobile number">
+        <input type="text" name="subject" placeholder="Email Subject">
+      </div>
+      <textarea name="message" id="textarea" cols="30" rows="10" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" class="btn">
+    </form>
+
+    <p class="contact-alt">Or email directly: <a href="mailto:sabbirofficial44@gmail.com">sabbirofficial44@gmail.com</a></p>
+  </section>
+
+  <!-- footer design -->
+  <footer>
+    <div class="footer-text">
+      <p>Copyright &copy; <span id="year">2026</span> by Sabbir Molla | All Rights Reserved</p>
+    </div>
+    <div class="footer-iconTop">
+      <a href="#home" aria-label="Back to top"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+  </footer>
+
+  <!-- scroll reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- typed js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- three.js for 3D background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- custom js -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
